@@ -2,13 +2,14 @@
 all:
 	mkdir -p build
 	gcc \
+		-static \
 		-Wall -Werror -Wno-missing-braces \
 		-std=c99 \
 		-o build/CGui.exe \
-		-lwinmm -lgdi32 -luser32 -lOpenGL32 -lkernel32 -lshell32 -lmsvcrt \
 		-Iinclude/glfw -Iinclude/glad \
+		src/main.c \
 		lib/glfw/libglfw3.a lib/glad/glad.c \
-		src/main.c # src/cgui.c
+		-lwinmm -lgdi32 -luser32 -lOpenGL32 -lkernel32 -lshell32 -lmsvcrt
 	build/CGui.exe
 
 clean:
