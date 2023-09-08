@@ -4,6 +4,8 @@
 #include "glad/glad.h"
 #include "glfw3.h"
 
+#include "draw.h"
+
 int main() {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -25,11 +27,19 @@ int main() {
 
     glViewport(0, 0, 1920, 1080);
 
+    draw_init();
     while (!glfwWindowShouldClose(window)) {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) break;
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        draw_immediate_rect((Rect) {480, 270, 960, 540}, (Color) {1, 0, 0, 0});
+        
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    draw_free();
+
+    glfwTerminate();
+    return EXIT_SUCCESS;
 }
