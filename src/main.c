@@ -12,7 +12,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-    GLFWwindow *window = glfwCreateWindow(1920, 1080, "CGui", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(1920, 1080, "OpenGLIntro2", NULL, NULL);
     if (!window) {
         printf("Failed to open GLFW window.\n");
         return EXIT_FAILURE;
